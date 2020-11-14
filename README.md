@@ -30,7 +30,7 @@ After the setup, trs can do three things:
 
 ## Disclaimer
 
-Go has a caring and friendly community where everyone is welcome. To reflect this I encourage you to read and follow the [Conde of Conduct](https://www.gophercon.com/page/1475132/code-of-conduct) before interacting with this project. Thank you! 🤗 
+Go has a caring and friendly community where everyone is welcome. To reflect this I encourage you to read and follow the [Code of Conduct](https://www.gophercon.com/page/1475132/code-of-conduct) before interacting with this project. Thank you! 🤗 
 
 ## License
 
