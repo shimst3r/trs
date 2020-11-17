@@ -3,6 +3,7 @@ package db
 
 import (
 	"database/sql"
+	"errors"
 	"fmt"
 	"os"
 	"os/user"
@@ -18,14 +19,22 @@ type TimeEntry struct {
 	Start, End time.Time
 }
 
+var (
+	// ErrDBFileDoesNotExist is returned when the database file is accessed, but does not exist.
+	ErrDBFileDoesNotExist = errors.New("database file does not exist")
+)
+
 // DoesNotExist checks whether the database file exists.
-func DoesNotExist() (bool, error) {
+func DoesNotExist() error {
 	dbPath, err := getDBPath()
 	if err != nil {
-		return false, err
+		return err
 	}
 	_, err = os.Stat(dbPath)
-	return os.IsNotExist(err), nil
+	if os.IsNotExist(err) {
+		return ErrDBFileDoesNotExist
+	}
+	return nil
 }
 
 // InitDB ensures that the trs database exists and contains all necessary schemas.
